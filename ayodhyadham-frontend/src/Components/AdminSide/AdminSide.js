@@ -13,7 +13,7 @@ function AdminSide() {
   const isAuth=async()=>{
   try {
     //getting the response from backend
-    const response=await fetch('http://localhost:7000/verify/',{
+    const response=await fetch(process.env.REACT_APP_URL+'/verify/',{
       mode: 'no-cors',
       method:"GET",
       headers:{

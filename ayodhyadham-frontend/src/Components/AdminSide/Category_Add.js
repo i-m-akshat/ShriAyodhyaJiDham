@@ -7,7 +7,7 @@ function Category_Add() {
     e.preventDefault();
     console.log(category);
     if(category!=''){
-      const response = await fetch('http://localhost:7000/manageCategory/AddCategory',{
+      const response = await fetch(process.env.REACT_APP_URL+'/manageCategory/AddCategory',{
         method: "POST",
         headers: {
           "Content-Type":"application/json",

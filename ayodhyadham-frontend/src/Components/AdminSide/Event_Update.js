@@ -21,7 +21,7 @@ function Event_Update() {
   const id=location.state.id;
   console.log(id);
   const fetchSpots=async()=>{
-    fetch('http://localhost:7000/manageSpot/', {
+    fetch(process.env.REACT_APP_URL+'/manageSpot/', {
       method: "GET",
       headers: {
         'Content-Type': 'application/json'
@@ -36,7 +36,7 @@ function Event_Update() {
 
   }
   const fetchEventByid=async(id)=>{
-    const response=await fetch(`http://localhost:7000/manageEvent/GetEventById/${id}`,{
+    const response=await fetch(`${process.env.REACT_APP_URL}/manageEvent/GetEventById/${id}`,{
       method:"GET",
       headers:{
         'content-type':'application/json'
@@ -94,7 +94,7 @@ console.log(id);
     formData.append('short_description', short_description);
     formData.append('full_description', full_description);
     formData.append('spot_id', selectedOptions);
-    const response=await fetch(`http://localhost:7000/manageEvent/UpdateEvent/${id}`,{
+    const response=await fetch(`${process.env.REACT_APP_URL}/manageEvent/UpdateEvent/${id}`,{
     method:"PUT",
     headers:{
       sessionID:localStorage.sessionID
@@ -191,7 +191,7 @@ console.log(id);
                  
                   }} name='iconImage' id="imgIcon" placeholder="Please Select the Icon Image for the Spot" />
                  {
-                  (icon_imageUrl!=null?<img src={icon_imageUrl} className='mt-3' height={100} width={200}/>:<img src={`http://localhost:7000/${icon_image}`} className='mt-3' height={100} width={200}/>)
+                  (icon_imageUrl!=null?<img src={icon_imageUrl} className='mt-3' height={100} width={200}/>:<img src={`${process.env.REACT_APP_URL}/${icon_image}`} className='mt-3' height={100} width={200}/>)
                  }
 
 
@@ -208,7 +208,7 @@ console.log(id);
                       setBannerImageURL(URL.createObjectURL(e.target.files[0]))}
                       }} placeholder="Please Select the Banner Image for the Spot" />
                       {
-                        (banner_imageUrl!=null? <img src={banner_imageUrl} className='mt-3' height={100} width={200}/>:<img src={`http://localhost:7000/${banner_image}`} className='mt-3' height={100} width={200}/>)
+                        (banner_imageUrl!=null? <img src={banner_imageUrl} className='mt-3' height={100} width={200}/>:<img src={`${process.env.REACT_APP_URL}/${banner_image}`} className='mt-3' height={100} width={200}/>)
                        
                       }
 

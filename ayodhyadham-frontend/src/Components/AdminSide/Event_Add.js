@@ -17,7 +17,7 @@ function Event_Add() {
   const [selectedOptions, setSelectedOptions] = useState(0);
   const [dropData, setDropData] = useState([]);
   const fetchSpots=async()=>{
-    fetch('http://localhost:7000/manageSpot/', {
+    fetch(process.env.REACT_APP_URL+'/manageSpot/', {
       method: "GET",
       headers: {
         'Content-Type': 'application/json'
@@ -61,7 +61,7 @@ function Event_Add() {
     formData.append('short_description', short_description);
     formData.append('full_description', full_description);
     formData.append('spot_id', selectedOptions);
-    const response = await fetch('http://localhost:7000/manageEvent/AddEvent',{
+    const response = await fetch(process.env.REACT_APP_URL+'/manageEvent/AddEvent',{
         method:"POST",
         headers:{
           //'Content-Type':'application/json',

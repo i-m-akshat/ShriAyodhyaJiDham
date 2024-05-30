@@ -4,7 +4,7 @@ import CardSlider from "./CardSlider";
 function HomePage_Places() {
     const [spots,setSpots]=useState([]);
     const fetchSpots=async()=>{
-        const response=await fetch('http://localhost:7000/manageSpot/',{
+        const response=await fetch(process.env.REACT_APP_URL+'/manageSpot/',{
             method:"GET",
             headers:{
                 "content-type":'application/json'

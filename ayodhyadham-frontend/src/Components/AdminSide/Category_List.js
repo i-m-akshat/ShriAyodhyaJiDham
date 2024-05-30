@@ -7,7 +7,7 @@ function Category_List() {
  
     const [data,setData]=useState([]);
     const fetchList=async()=>{
-        fetch('http://localhost:7000/manageCategory/',{
+        fetch(process.env.REACT_APP_URL+'/manageCategory/',{
             method:"GET",
             headers:{
                 'Content-Type':'application/json'
@@ -36,7 +36,7 @@ const handleDelete=async(id)=>{
     confirmButtonText: "Yes, delete it!"
   }).then(async(result) => {
     if (result.isConfirmed) {
-      const response=await fetch(`http://localhost:7000/manageCategory/DeleteCategory/${id}`,{
+      const response=await fetch(`${process.env.REACT_APP_URL}/manageCategory/DeleteCategory/${id}`,{
         method:"PUT",
         headers:{
           "Content-Type":"application/json",

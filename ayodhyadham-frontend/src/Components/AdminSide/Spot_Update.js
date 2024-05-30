@@ -21,7 +21,7 @@ function Spot_Update() {
   const id=location.state.id;
   const fetchList_Category = async () => {
     
-    fetch('http://localhost:7000/manageCategory/', {
+    fetch(process.env.REACT_APP_URL+'/manageCategory/', {
       method: "GET",
       headers: {
         'Content-Type': 'application/json'
@@ -36,7 +36,7 @@ function Spot_Update() {
 
   }
   const fetchSpotByid=async(id)=>{
-    const response=await fetch(`http://localhost:7000/manageSpot/GetSpotById/${id}`,{
+    const response=await fetch(`${process.env.REACT_APP_URL}/manageSpot/GetSpotById/${id}`,{
       method:"GET",
       headers:{
         'content-type':'application/json'
@@ -67,7 +67,7 @@ const handleUpdate=async(id)=>{
   formData.append('short_description', short_description);
   formData.append('full_description', full_description);
   formData.append('category_id', selectedOptions);
-  const response=await fetch(`http://localhost:7000/manageSpot/UpdateSpot/${id}`,{
+  const response=await fetch(`${process.env.REACT_APP_URL}/manageSpot/UpdateSpot/${id}`,{
     method:"PUT",
     headers:{
       sessionID:localStorage.sessionID
@@ -165,7 +165,7 @@ const handleUpdate=async(id)=>{
                      
                       }} name='iconImage' id="imgIcon" placeholder="Please Select the Icon Image for the Spot" />
                      {
-                      (icon_imageUrl!=null?<img src={icon_imageUrl} className='mt-3' height={100} width={200}/>:<img src={`http://localhost:7000/${icon_image}`} className='mt-3' height={100} width={200}/>)
+                      (icon_imageUrl!=null?<img src={icon_imageUrl} className='mt-3' height={100} width={200}/>:<img src={`${process.env.REACT_APP_URL}/${icon_image}`} className='mt-3' height={100} width={200}/>)
                      }
                         
                       
@@ -182,7 +182,7 @@ const handleUpdate=async(id)=>{
                       setBannerImageURL(URL.createObjectURL(e.target.files[0]))}
                       }} placeholder="Please Select the Banner Image for the Spot" />
                       {
-                        (banner_imageUrl!=null? <img src={banner_imageUrl} className='mt-3' height={100} width={200}/>:<img src={`http://localhost:7000/${banner_image}`} className='mt-3' height={100} width={200}/>)
+                        (banner_imageUrl!=null? <img src={banner_imageUrl} className='mt-3' height={100} width={200}/>:<img src={`${process.env.REACT_APP_URL}/${banner_image}`} className='mt-3' height={100} width={200}/>)
                        
                       }
                     

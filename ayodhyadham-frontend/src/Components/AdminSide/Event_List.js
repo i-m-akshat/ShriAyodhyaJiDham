@@ -18,7 +18,7 @@ const handleDelete=async(id)=>{
     confirmButtonText: "Yes, delete it!"
   }).then(async(result) => {
     if (result.isConfirmed) {
-      const response=await fetch(`http://localhost:7000/manageEvent/DeleteEvent/${id}`,{
+      const response=await fetch(`${process.env.REACT_APP_URL}/manageEvent/DeleteEvent/${id}`,{
         method:"PUT",
         headers:{
           "Content-Type":"application/json",
@@ -41,7 +41,7 @@ const handleDelete=async(id)=>{
   });
 }
   const fetchEvents=async()=>{
-const response=await fetch('http://localhost:7000/manageEvent/',{
+const response=await fetch(process.env.REACT_APP_URL+'/manageEvent/',{
   method:"GET",
   headers:{
     'content-type':'application/json'
@@ -85,7 +85,7 @@ setData(data);
       <tr>
         <td>{index+1}</td>
         <td>{res.event_name}</td>
-        <td><img src={`http://localhost:7000/${res.icon_image}`
+        <td><img src={`${process.env.REACT_APP_URL}/${res.icon_image}`
 } height={100} width={200}/></td>
         <td>
         <a className='btn btn-warning btn-sm mx-2' onClick={e=>handleEdit(res.event_id)}><i className="fa-regular fa-pen-to-square mx-2"></i></a>

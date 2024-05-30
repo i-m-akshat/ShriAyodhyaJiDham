@@ -18,7 +18,7 @@ function Admin_Add() {
     const [states,setStates]=useState([]);
     const [roles,setRoles]=useState([]);
     const fetchRoles=async()=>{
-        fetch('http://localhost:7000/manageRole/',{
+        fetch(process.env.REACT_APP_URL+'/manageRole/',{
             method:"GET",
             headers:{
                 'Content-Type':'application/json'
@@ -34,7 +34,7 @@ function Admin_Add() {
         //  console.log(data);
     }
     const fetchStates=async(id)=>{
-      fetch(`http://localhost:7000/manageAdmin/GetStates/${id}`,{
+      fetch(`${process.env.REACT_APP_URL}/manageAdmin/GetStates/${id}`,{
             method:"GET",
             headers:{
                 'Content-Type':'application/json'
@@ -48,7 +48,7 @@ function Admin_Add() {
          })
     }
     const fetchCities=async(id)=>{
-      fetch(`http://localhost:7000/manageAdmin/GetCities/${id}`,{
+      fetch(`${process.env.REACT_APP_URL}/manageAdmin/GetCities/${id}`,{
             method:"GET",
             headers:{
                 'Content-Type':'application/json'
@@ -62,7 +62,7 @@ function Admin_Add() {
          })
     }
     const fetchCountries=async()=>{
-      fetch('http://localhost:7000/manageAdmin/GetCountries',{
+      fetch(process.env.REACT_APP_URL+'/manageAdmin/GetCountries',{
             method:"GET",
             headers:{
                 'Content-Type':'application/json'
@@ -97,7 +97,7 @@ setSelectedRole(e.target.value)
       setSelectedCity(e.target.value)
     }
     const handleAdd=async()=>{
-      const result=await fetch('http://localhost:7000/manageAdmin/AddAdmin',{
+      const result=await fetch(process.env.REACT_APP_URL+'/manageAdmin/AddAdmin',{
         method:"POST",
         headers: {
           "Content-Type":"application/json",

@@ -29,7 +29,7 @@ setRole(localStorage.getItem('role'));
             confirmButtonText: "Yes, I want to Logout!"
           }).then(async(result) => {
             if (result.isConfirmed) {
-                const response=await fetch('http://localhost:7000/manageAdmin/Logout',{
+                const response=await fetch(process.env.REACT_APP_URL+'/manageAdmin/Logout',{
                     method:"GET",
                     headers:{
                         sessionID:localStorage.sessionID

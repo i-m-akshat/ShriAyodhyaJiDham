@@ -7,7 +7,7 @@ function Role_Add() {
     e.preventDefault();
     console.log(role);
     if(role!=''){
-      const response = await fetch('http://localhost:7000/manageRole/AddRole',{
+      const response = await fetch(process.env.REACT_APP_URL+'/manageRole/AddRole',{
         method: "POST",
         headers: {
           "Content-Type":"application/json",

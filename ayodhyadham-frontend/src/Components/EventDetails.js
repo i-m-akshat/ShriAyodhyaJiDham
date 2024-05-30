@@ -10,7 +10,7 @@ function EventDetails() {
     const id=location.state.id;
     
     const fetchEventDetails=async()=>{
-        const response=await fetch(`http://localhost:7000/manageEvent/GetEventById/${id}`,{
+        const response=await fetch(`${process.env.REACT_APP_URL}/manageEvent/GetEventById/${id}`,{
             method:"GET",
             headers:{
                 "content-type":'application/json'
@@ -28,7 +28,7 @@ function EventDetails() {
         setEventDetails(data[0]);
     }
     const fetchNextEvents=async(id)=>{
-        const response=await fetch(`http://localhost:7000/manageEvent/nextEvents/${id}`,{
+        const response=await fetch(`${process.env.REACT_APP_URL}/manageEvent/nextEvents/${id}`,{
             method:"GET",
             headers:{
                 "content-type":'application/json'
@@ -90,7 +90,7 @@ function EventDetails() {
             </div>
             <div className='col-md-6'>
             <div className="p-2 text-center">
-                <img id="BannerImage" style={{borderRadius:"20px"}}  className="img-fluid" alt="blog page" src={`http://localhost:7000/${EventDetails.banner_image}`}  />
+                <img id="BannerImage" style={{borderRadius:"20px"}}  className="img-fluid" alt="blog page" src={`${process.env.REACT_APP_URL}/${EventDetails.banner_image}`}  />
             </div>
             </div>
         </div>
@@ -124,7 +124,7 @@ function EventDetails() {
                 
                
                 </div> 
-                {/* <img className="img-fluid rounded" src={`http://localhost:7000/${EventDetails.icon_image}`}  alt="blog page"/> */}
+                {/* <img className="img-fluid rounded" src={`${process.env.REACT_APP_URL}/${EventDetails.icon_image}`}  alt="blog page"/> */}
             </div>
             </div>
            

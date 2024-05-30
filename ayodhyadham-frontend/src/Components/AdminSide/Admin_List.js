@@ -6,7 +6,7 @@ function Admin_List() {
   const navigate=useNavigate();
     const [data,setData]=useState([]);
     const fetchlist=async()=>{
-        const res=await fetch('http://localhost:7000/manageAdmin/GetAllAdmin',{
+        const res=await fetch(process.env.REACT_APP_URL+'/manageAdmin/GetAllAdmin',{
             method:"GET",
             headers:{
                 'Content-Type':'application/json'
@@ -29,7 +29,7 @@ setData(data);
         confirmButtonText: "Yes, delete it!"
       }).then(async(result) => {
         if (result.isConfirmed) {
-          const response=await fetch(`http://localhost:7000/manageAdmin/DeleteAdmin/${id}`,{
+          const response=await fetch(`${process.env.REACT_APP_URL}/manageAdmin/DeleteAdmin/${id}`,{
             method:"PUT",
             headers:{
               "Content-Type":"application/json",

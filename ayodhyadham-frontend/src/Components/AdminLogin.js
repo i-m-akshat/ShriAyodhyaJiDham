@@ -12,7 +12,7 @@ function AdminLogin(props) {
     console.log(password);
     e.preventDefault();
     if(userName!='' && password!=''){
-      const response=await fetch('http://localhost:7000/manageAdmin/',{
+      const response=await fetch(process.env.REACT_APP_URL+'/manageAdmin/',{
         method:"POST",
         headers:{
           'Content-Type':'application/json',

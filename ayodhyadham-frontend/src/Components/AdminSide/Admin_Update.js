@@ -22,7 +22,7 @@ function Admin_Update() {
     console.log(id);
     const fetchAdminData = async (id) => {
         try {
-            const response = await fetch(`http://localhost:7000/manageAdmin/SelectAdminById/${id}`, {
+            const response = await fetch(`${process.env.REACT_APP_URL}/manageAdmin/SelectAdminById/${id}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -56,7 +56,7 @@ function Admin_Update() {
     };
 
     const fetchRoles = async () => {
-        fetch('http://localhost:7000/manageRole/', {
+        fetch(process.env.REACT_APP_URL+'/manageRole/', {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json'
@@ -72,7 +72,7 @@ function Admin_Update() {
         //  console.log(data);
     }
     const fetchStates = async (id) => {
-        fetch(`http://localhost:7000/manageAdmin/GetStates/${id}`, {
+        fetch(`${process.env.REACT_APP_URL}/manageAdmin/GetStates/${id}`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json'
@@ -86,7 +86,7 @@ function Admin_Update() {
         })
     }
     const fetchCities = async (id) => {
-        const response=await fetch(`http://localhost:7000/manageAdmin/GetCities/${id}`, {
+        const response=await fetch(`${process.env.REACT_APP_URL}/manageAdmin/GetCities/${id}`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json'
@@ -108,7 +108,7 @@ function Admin_Update() {
         }
     }
     const fetchCountries = async () => {
-        fetch('http://localhost:7000/manageAdmin/GetCountries', {
+        fetch(process.env.REACT_APP_URL+'/manageAdmin/GetCountries', {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json'
@@ -145,7 +145,7 @@ function Admin_Update() {
         setSelectedCity(e.target.value)
     }
     const handleUpdate = async () => {
-        const result = await fetch(`http://localhost:7000/manageAdmin/UpdateAdmin/${id}`, {
+        const result = await fetch(`${process.env.REACT_APP_URL}/manageAdmin/UpdateAdmin/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

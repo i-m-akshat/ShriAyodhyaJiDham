@@ -10,7 +10,7 @@ function Category_Update() {
   const id=location.state.id;
   console.log(id);
   const fetchCategoryById=async(id)=>{
-    const response=await fetch(`http://localhost:7000/manageCategory/SelectCategory/${id}`,{
+    const response=await fetch(`${process.env.REACT_APP_URL}/manageCategory/SelectCategory/${id}`,{
       method:"GET",
       headers:{
         "Content-Type":'application/json',
@@ -51,7 +51,7 @@ function Category_Update() {
         timer: 1500
       });
     }else{
-      const response=await fetch(`http://localhost:7000/manageCategory/UpdateCategory/${id}`,{
+      const response=await fetch(`${process.env.REACT_APP_URL}/manageCategory/UpdateCategory/${id}`,{
         method:"PUT",
         headers:{
           "Content-Type":"application/json",

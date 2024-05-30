@@ -7,7 +7,7 @@ function Role_List() {
  
     const [data,setData]=useState([]);
     const fetchList=async()=>{
-        fetch('http://localhost:7000/manageRole/',{
+        fetch(process.env.REACT_APP_URL+'/manageRole/',{
             method:"GET",
             headers:{
                 'Content-Type':'application/json'
@@ -36,7 +36,7 @@ const handleDelete=async(id)=>{
     confirmButtonText: "Yes, delete it!"
   }).then(async(result) => {
     if (result.isConfirmed) {
-      const response=await fetch(`http://localhost:7000/manageRole/DeleteRole/${id}`,{
+      const response=await fetch(`${process.env.REACT_APP_URL}/manageRole/DeleteRole/${id}`,{
         method:"PUT",
         headers:{
           "Content-Type":"application/json",

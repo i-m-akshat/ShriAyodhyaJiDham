@@ -29,7 +29,7 @@ function Spot_Add() {
   const [dropData, setDropData] = useState([]);
   const fetchList_Category = async () => {
     
-    fetch('http://localhost:7000/manageCategory/', {
+    fetch(process.env.REACT_APP_URL+'/manageCategory/', {
       method: "GET",
       headers: {
         'Content-Type': 'application/json'
@@ -59,7 +59,7 @@ function Spot_Add() {
     formData.append('full_description', full_description);
     formData.append('category_id', selectedOptions);
     // console.log(formData)
-    const response=await fetch('http://localhost:7000/manageSpot/AddSpots',
+    const response=await fetch(process.env.REACT_APP_URL+'/manageSpot/AddSpots',
     {
       method:"POST",
       headers:{

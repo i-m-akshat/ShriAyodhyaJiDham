@@ -10,7 +10,7 @@ function Role_Update() {
   const id=location.state.id;
   console.log(id);
   const fetchRoleById=async(id)=>{
-    const response=await fetch(`http://localhost:7000/manageRole/SelectRole/${id}`,{
+    const response=await fetch(`${process.env.REACT_APP_URL}/manageRole/SelectRole/${id}`,{
       method:"GET",
       headers:{
         "Content-Type":'application/json',
@@ -51,7 +51,7 @@ function Role_Update() {
         timer: 1500
       });
     }else{
-      const response=await fetch(`http://localhost:7000/manageRole/UpdateRole/${id}`,{
+      const response=await fetch(`${process.env.REACT_APP_URL}/manageRole/UpdateRole/${id}`,{
         method:"PUT",
         headers:{
           "Content-Type":"application/json",

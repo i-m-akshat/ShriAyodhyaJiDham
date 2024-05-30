@@ -5,7 +5,7 @@ import Card from './Card';
 function SpotList() {
   const [allSpots,setAllSpots]=useState([]);
   const fetchAllSpots=async()=>{
-    const response=await fetch('http://localhost:7000/manageSpot/',{
+    const response=await fetch(process.env.REACT_APP_URL+'/manageSpot/',{
       method:"GET",
       headers:{
         'content-type':'application/json'

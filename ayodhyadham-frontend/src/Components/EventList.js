@@ -5,7 +5,7 @@ import EventCard from './EventCard';
 function EventList() {
   const [allEvents,setAllEvents]=useState([]);
   const fetchAllEvents=async()=>{
-    const response=await fetch('http://localhost:7000/manageEvent/GetUpcomingEvents',{
+    const response=await fetch(process.env.REACT_APP_URL+'/manageEvent/GetUpcomingEvents',{
       method:"GET",
       headers:{
         'content-type':'application/json'

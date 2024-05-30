@@ -10,7 +10,7 @@ function SpotDetails() {
     const id=location.state.id;
 
     const fetchSpotDetails=async()=>{
-        const response=await fetch(`http://localhost:7000/manageSpot/GetSpotByid/${id}`,{
+        const response=await fetch(`${process.env.REACT_APP_URL}/manageSpot/GetSpotByid/${id}`,{
             method:"GET",
             headers:{
                 "content-type":'application/json'
@@ -21,7 +21,7 @@ function SpotDetails() {
         setSpotDetails(data[0]);
     }
     const fetchNextSpots=async(id)=>{
-        const response=await fetch(`http://localhost:7000/manageSpot/nextSpots/${id}`,{
+        const response=await fetch(`${process.env.REACT_APP_URL}/manageSpot/nextSpots/${id}`,{
             method:"GET",
             headers:{
                 "content-type":'application/json'
@@ -82,7 +82,7 @@ function SpotDetails() {
             </div>
             <div className='col-md-6'>
             <div className="p-2 text-center">
-                <img id="BannerImage" style={{borderRadius:"20px"}}  className="img-fluid" alt="blog page" src={`http://localhost:7000/${SpotDetails.banner_image}`}  />
+                <img id="BannerImage" style={{borderRadius:"20px"}}  className="img-fluid" alt="blog page" src={`${process.env.REACT_APP_URL}/${SpotDetails.banner_image}`}  />
             </div>
             </div>
         </div>
@@ -107,7 +107,7 @@ function SpotDetails() {
                 
                
                 </div> 
-                {/* <img className="img-fluid rounded" src={`http://localhost:7000/${SpotDetails.icon_image}`}  alt="blog page"/> */}
+                {/* <img className="img-fluid rounded" src={`${process.env.REACT_APP_URL}/${SpotDetails.icon_image}`}  alt="blog page"/> */}
             </div>
             </div>
            
