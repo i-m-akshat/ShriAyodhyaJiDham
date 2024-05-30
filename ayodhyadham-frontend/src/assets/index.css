@@ -1,0 +1,225 @@
+/* .bg_nav{
+    background-color: #000000;
+    color:whitesmoke;
+} */
+nav{
+    background-color: whitesmoke;
+    color: #F25C05;
+    box-shadow: 0 10px 10px -1px rgba(0, 0, 0, 0.1);
+}
+
+.body{
+    background-color:whitesmoke;
+    /* font-family: "Noto Sans", sans-serif; */
+    font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+.welcomeText{
+    /* text-shadow: 2px 2px #ffd700; */
+    font-size: 80px;
+    font-family: "Kumbh Sans", sans-serif;
+    /* font-family: "Raleway", sans-serif; */
+  font-optical-sizing: auto;
+    /* font-family: "Yellowtail", cursive; */
+  font-weight: 600;
+  font-style: normal;
+  color:#F25C05;
+}
+.topbar{
+    background-color: inherit;
+    /* #F25C05 */
+    color:black;
+    display: flex;
+    flex-direction: row;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+}
+.topbar-links{
+    display: flex;
+    flex-direction: row;
+    padding: 5px 15px;
+}
+.topbar-links>a{
+    text-decoration: none;
+    color:#F25C05;
+    display: flex;flex-direction: row;
+    transition: 0.8s ease-in-out;
+}
+.topbar-links>a:hover{
+    color: #000000;
+}
+.icons{
+    margin-top: 5px;margin-right: 10px;
+    margin-left:10px;
+}
+.topbar-icons{
+    display: flex;
+    flex-direction: row;
+    padding: 5px 15px;
+    text-align: right;
+    justify-content: end;
+    align-items: center;
+}
+.topbar-icons>a{
+    display: inline-block;
+    margin-right: 10px;
+    border: 1px solid;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    color:#F25C05;
+    transition: 0.8s ease-in-out;
+}
+.topbar-icons>a:hover{
+    color:#000000;
+}
+.headerText{
+    font-family: "Yellowtail", cursive;
+  font-weight: 400;
+  /* text-shadow: 2px 2px #F25C05; */
+  font-style: normal;
+    font-size: 60px;
+    color:#000000;
+    border-bottom: #F25C05;
+}
+.btnRound{
+   color: white;
+    height: 60px;
+    width: 100px;
+    background-color:#F25C05;
+    padding: 5px;
+    text-decoration: none;
+    transition: 0.8s ease-in-out;
+    border: none;
+    
+}
+.btnRound:hover{
+    border-radius: 20px;
+    color: #F25C05;
+    background-color: white;
+}
+.navButton{
+    background-color: white;
+    border-radius: 20px;
+    height: auto;
+    width: auto;
+    color:#F25C05;
+    padding: 5px;
+    text-decoration: none;
+    transition: 0.8s ease-in-out;
+}
+.navButton:hover{
+    background-color: #F25C05;
+    color: white;
+}
+.nav-item>a{
+    color: #F25C05;
+    transition: 0.5 ease-in-out;
+}
+.nav-item>a:hover{
+    color:#33302c;
+}
+#sectionExplore{
+  margin-top: 30px;
+    
+}
+#IntroImage{
+    border-radius: 50%;
+    -webkit-box-shadow: 8px 8px 8px 0px rgb(128, 123, 123);
+    -moz-box-shadow: 8px 8px 8px 0px rgb(135, 130, 130);
+    box-shadow: 8px 8px 8px 0px rgb(132, 130, 130);
+    border:10px solid white;
+}
+.text-desc{
+    font-size: 15px;
+    padding: 10px;
+    text-align: justify;
+    font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #78726D;
+}
+.btn-Round2{
+   color:white;
+   border: none;
+    height: 60px;
+    width: 120px;
+    background-color:#F25C05;
+    padding: 5px;
+    text-align: center;
+    cursor:pointer;
+    text-decoration: none;
+    transition: 0.8s ease-in-out;
+}
+.btn-Round2:hover{
+    background-color: white;
+    color:#F25C05;
+    cursor:pointer;
+}
+.inputWrapper{
+position: relative;
+display: flex; 
+flex:1;
+margin-right: 10px;
+}
+
+.inputWrapper input { 
+    width: 100%;
+    flex: 2;
+    padding-right: 10px; 
+} 
+.inputWrapper button { 
+    position: absolute; 
+    top: 0; 
+    right: 0; 
+    border: none; 
+    background-color: transparent; 
+    cursor: pointer; 
+} 
+.btnSearch{
+    margin-right: 10px;
+    color:#F25C05;
+    height:auto;
+    width: auto;
+    background-color:white;
+    border-radius: 20%;
+    padding: 5px;
+    text-decoration: none;
+    transition: 0.8s ease-in-out;
+}
+.btnSearch:hover{
+    background-color:#F25C05;
+    color:white;
+}
+.wrapper-cab{
+    position: relative;
+    display: flex;
+    flex:1;
+}
+.wrapper-cab>.vehicleText{
+    padding-right: 20px;
+    flex: 1;
+}
+.wrapper-cab>.txtPrice{
+    padding-left: 20px;
+   flex: 1;
+}
+.wrapper-cab>label{
+    padding: 20px;
+    flex: 1;
+}
+.Container_Image{
+    background-image: url( '/assets/img/blob.svg' );
+    background-repeat: no-repeat;
+}
+.text-SubHeading{
+    color:#000000;
+    font-size: 40px;
+    text-align: justify ;
+}

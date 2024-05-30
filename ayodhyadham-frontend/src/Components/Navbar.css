@@ -1,0 +1,40 @@
+nav{
+    background-color: whitesmoke;
+    color: #F25C05;
+    box-shadow: 0 10px 10px -1px rgba(0, 0, 0, 0.1);
+  }
+  .navButton{
+    background-color: white;
+    border-radius: 20px;
+    height: auto;
+    width: auto;
+    color:#F25C05;
+    padding: 5px;
+    text-decoration: none;
+    transition: 0.8s ease-in-out;
+  }
+  .navButton:hover{
+    background-color: #F25C05;
+    color: white;
+  }
+  .nav-item>a{
+    color: #F25C05;
+    transition: 0.5 ease-in-out;
+  }
+  .nav-item>a:hover{
+    color:#33302c;
+  }
+  /* Navbar.css */
+.collapse {
+  transition: height 0.3s ease;
+}
+
+.collapsing {
+  transition: height 0.3s ease;
+  height: 0;
+  overflow: hidden;
+}
+
+.collapse.show {
+  height: auto;
+}

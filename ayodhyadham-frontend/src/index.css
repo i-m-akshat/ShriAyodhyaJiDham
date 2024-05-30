@@ -1,0 +1,355 @@
+/* globalStyles.css */
+iframe#webpack-dev-server-client-overlay{display:none!important}
+/* WebKit-based browsers */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+  height: 12px; /* Height of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: white; /* Color of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #F25C05; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Roundness of the scrollbar thumb */
+  border: 3px solid white; /* Padding around scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d14d04; /* Darker shade for the scrollbar thumb when hovered */
+}
+
+/* Firefox */
+html {
+  scrollbar-width: thin; /* Sets the width of the scrollbar */
+  scrollbar-color: #F25C05 white; /* Sets the color of the scrollbar thumb and track */
+}
+
+.body{
+  background-color:whitesmoke;
+  overflow-x: hidden;
+  
+  font-family: "Raleway", sans-serif;
+font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.welcomeText{
+  /* text-shadow: 2px 2px #ffd700; */
+  font-size: 80px;
+  font-family: "Kumbh Sans", sans-serif;
+  /* font-family: "Raleway", sans-serif; */
+font-optical-sizing: auto;
+  /* font-family: "Yellowtail", cursive; */
+font-weight: 600;
+font-style: normal;
+color:#F25C05;
+}
+
+.headerText{
+  /* font-family: "Yellowtail", cursive; */
+  font-family: "Kumbh Sans", sans-serif;
+font-weight: 400;
+/* text-shadow: 2px 2px #F25C05; */
+font-style: normal;
+  font-size: 60px;
+  /* color:#000000; */
+  color:#F25C05;
+  border-bottom: #F25C05;
+  
+}
+.btnRound{
+
+ color: white;
+  height: 60px;
+  width: 100px;
+  background-color:#F25C05;
+  padding: 5px;
+  text-decoration: none;
+  transition: 0.8s ease-in-out;
+  border: none;
+  
+}
+.text-subhead{
+  font-size: 20px;
+  color:white;
+}
+.text-head{
+  font-size: 30px;
+  font-weight: 500;
+  color: whitesmoke;
+}
+
+section{
+  background-image: url('assets/img/Manadala.png');
+}
+.btnRound_white{
+
+  /* color: white; */
+  color:#F25C05;
+   height: 60px;
+   width: 100px;
+   /* background-color:#F25C05; */
+   background-color: white;
+   padding: 5px;
+   text-decoration: none;
+   transition: 0.8s ease-in-out;
+   border: none;
+   
+ }
+.btnRound:hover{
+  border-radius: 20px;
+  color: #F25C05;
+  background-color: white;
+}
+.btnRound_white:hover{
+  border-radius: 20px;
+  color: white;
+  background-color: #F25C05;
+}
+#sectionExplore{
+margin-top: 30px;
+  
+}
+/* #IntroImage{
+  /* height: 75%; */
+  /* border-radius: 50%; */
+  /* -webkit-box-shadow: 8px 8px 8px 0px rgb(128, 123, 123);
+  -moz-box-shadow: 8px 8px 8px 0px rgb(135, 130, 130);
+  box-shadow: 5px 6px 7px 8px rgb(132, 130, 130);
+  border:10px solid white; */
+ 
+*/
+.text-desc{
+  font-size: 15px;
+  padding: 10px;
+  text-align: justify;
+  font-family: "Noto Sans", sans-serif;
+font-weight: 400;
+font-style: normal;
+color: #78726D;
+}
+.btn-Round2{
+ color:white;
+ border: none;
+  height: 60px;
+  width: 120px;
+  background-color:#F25C05;
+  padding: 5px;
+  text-align: center;
+  cursor:pointer;
+  text-decoration: none;
+  transition: 0.8s ease-in-out;
+}
+.btn-Round2:hover{
+  background-color: white;
+  color:#F25C05;
+  cursor:pointer;
+}
+.inputWrapper{
+position: relative;
+display: flex; 
+flex:1;
+margin-right: 10px;
+}
+
+.inputWrapper input { 
+  width: 100%;
+  flex: 2;
+  padding-right: 10px; 
+} 
+.inputWrapper button { 
+  position: absolute; 
+  top: 0; 
+  right: 0; 
+  border: none; 
+  background-color: transparent; 
+  cursor: pointer; 
+} 
+.btnSearch{
+  margin-right: 10px;
+  color:#F25C05;
+  height:auto;
+  width: auto;
+  background-color:white;
+  border-radius: 20%;
+  padding: 5px;
+  text-decoration: none;
+  transition: 0.8s ease-in-out;
+}
+.btnSearch:hover{
+  background-color:#F25C05;
+  color:white;
+}
+.wrapper-cab{
+  position: relative;
+  display: flex;
+  flex:1;
+}
+.wrapper-cab>.vehicleText{
+  padding-right: 20px;
+  flex: 1;
+}
+.wrapper-cab>.txtPrice{
+  padding-left: 20px;
+ flex: 1;
+}
+.wrapper-cab>label{
+  padding: 20px;
+  flex: 1;
+}
+/* .container_text{
+ 
+  background-image: url('assets/img/mandal3.png');
+  background-repeat: no-repeat;
+background-position:center;
+
+
+} */
+.containerPlaces{
+  background-image: url('assets/img/mandal3.png'),url('assets/img/mandal3.png');
+  background-position: right bottom, left top;
+background-repeat: no-repeat, no-repeat;
+padding: 15px;
+background-size: cover 40%,auto;
+}
+.containerSpotDetails{
+  background-image: url('assets/img/mandal3.png'),url('assets/img/mandal3.png');
+  background-position: right bottom,left top;
+background-repeat: no-repeat, no-repeat;
+padding: 15px;
+background-size:40%,40%;
+}
+.containerLogin{
+  background-image: url('assets/img/mandal3.png'),url('assets/img/mandal3.png');
+  background-position: right top,left bottom;
+background-repeat: no-repeat, no-repeat;
+padding: 15px;
+background-size:40%,20%;
+}
+.containerSpotList{
+   background-image: url('assets/img/mandal3.png'),url('assets/img/mandal3.png');
+  background-position: right bottom,left top;
+background-repeat: no-repeat, no-repeat;
+padding: 15px;
+background-size:50%,50%;
+}
+.discoverImage{
+  background-image: url('assets/img/mandal3.png');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.container_text{
+  background-image: url('assets/img/mandal3.png'),url('assets/img/mandal3.png');
+/* background-repeat: initial;
+align-items: center;
+justify-content: center;
+background-size: cover; */
+background-position: right bottom, left top;
+background-repeat: no-repeat,no-repeat;
+padding: 15px;
+background-size: 50%,50%;
+}
+.aboutContainer{
+  background-image: url('assets/img/mandal3.png'),url('assets/img/mandal3.png');
+/* background-repeat: initial;
+align-items: center;
+justify-content: center;
+background-size: cover; */
+background-position: right bottom, left top;
+background-repeat: no-repeat, no-repeat;
+padding: 15px;
+background-size: auto;
+}
+
+.text-SubHeading{
+  color:#000000;
+  font-size: 40px;
+  text-align: justify ;
+}
+.txtOrange{
+  color:#F25C05;
+}
+.diagonal-box {
+	background-image: linear-gradient(45deg, #F25c05,#F25c05 ,#ffffff);
+	transform: skewY(-11deg);
+  
+}
+
+.content {
+	max-width: 50em;
+	margin: 0 auto;
+	transform: skewY(11deg);
+  background-position:left bottom, right top;
+background-repeat: no-repeat,no-repeat, no-repeat;
+padding: 15px;
+background-size: 50%,50%,50%;
+background-image: url('assets/img/mandal3.png'),url('assets/img/mandal3.png'),url('assets/img/mandal3.png');
+}
+.btnDisc{
+  margin-top: 20px;
+}
+.containerReach{
+  background-position:left top, right bottom;
+background-repeat: no-repeat,no-repeat;
+padding: 15px;
+background-size: 40%,50%;
+background-image: url('assets/img/mandal3.png'),url('assets/img/mandal3.png');
+}
+/* .detailsPage{
+  background-image: url('./assets/img/DetailsBG.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+} */
+@media screen and (max-width: 580px) {
+  .welcomeText{
+    font-size: 40px;
+    margin-top: 20px;
+  }
+  .MainContainer{
+    padding: 20px ;
+  }
+  .text-SubHeading{
+    font-size: 30px;
+  }
+  .headerText{
+    font-size: 25px;
+  }
+  .text-desc{
+    font-size: 15px;
+  }
+  p{
+    font-size: 15px;
+  }
+  .card{
+    margin: 20px;
+  }
+  ._mainContent{
+    font-size: 15px;
+  }
+  .text-subhead{
+    margin-top: 50px;
+    text-align: center;
+  }
+  .btnDisc{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+}
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  position: fixed; /* Fix to viewport */
+  top: 0;
+  left: 0;
+  background-color: white; /* Optional: add a background color */
+  z-index: 9999; /* Ensure it is above other content */
+}

@@ -1,0 +1,101 @@
+.wrapper {
+    display: flex;
+    align-items: stretch;
+    width:100%;
+}
+.sideBar {
+    width: 300px;
+    background: white;
+    height: 100%;
+    color: #F25C05;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 1;
+    transition: all ease-in-out 0.5s;
+}
+
+.profile {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.profileName {
+    /* font-family: 'Permanent Marker', cursive; */
+    font-size: 22px;
+    color: #F25C05;;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.profile img {
+    width: 100px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.profileDesc {
+    font-size: 14px;
+    /* font-family: 'Permanent Marker', cursive; */
+    font-weight: 400;
+    color: #F25C05;
+
+}
+
+.sidebarList {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-style: none;
+}
+
+    .sideBar ul li a {
+        cursor: pointer;
+        position: relative;
+        display: block;
+        padding: 13px 30px;
+        /* color: rgb(241, 237, 237); */
+        font-size: 16px;
+        position: relative;
+        list-style: none;
+    }
+
+        .sideBar ul li a i {
+            margin: 10px;
+            width: 30px;
+            display: inline-block;
+            transition: 0.3s ease-in ease-out;
+        }
+
+        .sideBar ul li a:hover, .sideBar ul li a.active {
+            display: block;
+            /* background: linear-gradient(to right,black,grey,black); */
+            background-color: #F25C05;;
+            color: white !important;
+            border-radius: 2rem;
+            
+        }
+
+        .adminBody {
+            background-color: whitesmoke;
+            width: 100%;
+            margin-left: 300px;
+            transition: all ease-in-out 0.5s;
+        }
+        .adminBody nav{
+            background: white;
+        }
+        .adminBody nav #btnSide{
+            color: #F25C05;
+            padding: 10px;
+            border-radius: 10px;
+            transition: all ease-in-out 0.5s;
+        }
+        .adminBody nav #btnSide:hover{
+            background-color: #F25C05;
+            color: white;
+        }
