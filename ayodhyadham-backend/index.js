@@ -20,7 +20,8 @@ app.listen(Port,(req,res)=>{
 //cors is a function hence use it like u use a function 
 app.use(cors());
 app.use(useragent.express());
-app.use('/uploads/images', express.static('uploads/images'));
+//app.use('/uploads/images', express.static('uploads/images'));
+app.use('/uploads/images', express.static(path.join(__dirname, 'uploads/images')));
 //always place express.json() above the router handler 
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
