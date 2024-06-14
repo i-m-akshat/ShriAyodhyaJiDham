@@ -191,7 +191,7 @@ console.log(id);
                  
                   }} name='iconImage' id="imgIcon" placeholder="Please Select the Icon Image for the Spot" />
                  {
-                  (icon_imageUrl!=null?<img src={icon_imageUrl} className='mt-3' height={100} width={200}/>:<img src={`${process.env.REACT_APP_URL}/${icon_image}`} className='mt-3' height={100} width={200}/>)
+                  (icon_imageUrl!=null?<img src={icon_imageUrl} className='mt-3' height={100} width={200}/>:<img src={`${icon_image}`} className='mt-3' height={100} width={200}/>)
                  }
 
 
@@ -208,7 +208,7 @@ console.log(id);
                       setBannerImageURL(URL.createObjectURL(e.target.files[0]))}
                       }} placeholder="Please Select the Banner Image for the Spot" />
                       {
-                        (banner_imageUrl!=null? <img src={banner_imageUrl} className='mt-3' height={100} width={200}/>:<img src={`${process.env.REACT_APP_URL}/${banner_image}`} className='mt-3' height={100} width={200}/>)
+                        (banner_imageUrl!=null? <img src={banner_imageUrl} className='mt-3' height={100} width={200}/>:<img src={`${banner_image}`} className='mt-3' height={100} width={200}/>)
                        
                       }
 
