@@ -1,39 +1,61 @@
 const express=require('express');
 const Router_Event=express.Router();
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const cloudinary=require('../Services/CloudinaryConfig');
 const pool=require('../db')
 const path=require('path');
 const multer=require('multer');
 // const upload=multer({dest:"uploads/"});//this is a middleware
-const storage=multer.diskStorage({
-    destination:function(req,file,cb){
-        //create directory
-        // fs.mkdir('uploads/images',(err)=>{
-            return cb(null,"uploads/images");
-        // });
+// const storage=multer.diskStorage({
+//     destination:function(req,file,cb){
+//         //create directory
+//         // fs.mkdir('uploads/images',(err)=>{
+//             return cb(null,"uploads/images");
+//         // });
        
-    },//telling which folder will contain file//file-file user trying to upload, cb -callback have 2 param=foldername, return
-    filename:function(req,file,cb){
-        return cb(null,`${Date.now()}-Image-${file.originalname}`);
-    },
+//     },//telling which folder will contain file//file-file user trying to upload, cb -callback have 2 param=foldername, return
+//     filename:function(req,file,cb){
+//         return cb(null,`${Date.now()}-Image-${file.originalname}`);
+//     },
+// })///for multer
+//for cloudinary////
+const storage=new CloudinaryStorage({
+    cloudinary:cloudinary,
+    params:{
+        folder:'uploads/images',
+        allowedFormats: ['jpg', 'png', 'jpeg'],
+    }
 })
 const upload=multer({storage});
 
-
-Router_Event.post('/AddEvent',upload.fields([
-    {name:'iconImage',maxCount:1},
-    {name:'bannerImage',maxCount:1}
-]),async(req,res)=>{
+// ,upload.fields([
+//     {name:'iconImage',maxCount:1},
+//     {name:'bannerImage',maxCount:1}
+// ])
+Router_Event.post('/AddEvent',async(req,res)=>{
     try {
         const {spot_id,Event_name,showonhomepage,short_description,full_description,event_date}=req.body;
 const sessionID=req.header('sessionID');
-console.log(sessionID);
+
 const preData=await pool.query('select * from tbl_events where event_name=$1 and isactive=true',[Event_name]);
 
 if(preData.rowCount>0){
     res.status(403).json('Data Already Exist');
     
 }else{
-    const data=await pool.query('insert into tbl_events(spot_id,event_name,isactive,icon_image,banner_image,showonhomepage,full_description,short_description,createddate,createdby,event_date) values($1,$2,$3,$4,$5,$6,$7,$8,now(),$9,$10) returning *',[spot_id,Event_name,true,req.files.iconImage[0].path,req.files.bannerImage[0].path,showonhomepage,full_description,short_description,sessionID,event_date])
+    // Process file uploads to Cloudinary
+    const iconImage = req.files.iconImage;
+    const bannerImage = req.files.bannerImage;
+    // Upload iconImage and bannerImage to Cloudinary
+    const iconImageResult = await cloudinary.uploader.upload(iconImage.tempFilePath,(err,res)=>{
+        console.log(err);
+    });
+    
+    const bannerImageResult = await cloudinary.uploader.upload(bannerImage.tempFilePath,(err,res)=>{
+        console.log(err);
+    });
+    // const data=await pool.query('insert into tbl_events(spot_id,event_name,isactive,icon_image,banner_image,showonhomepage,full_description,short_description,createddate,createdby,event_date) values($1,$2,$3,$4,$5,$6,$7,$8,now(),$9,$10) returning *',[spot_id,Event_name,true,req.files.iconImage[0].path,req.files.bannerImage[0].path,showonhomepage,full_description,short_description,sessionID,event_date])
+    const data=await pool.query('insert into tbl_events(spot_id,event_name,isactive,icon_image,banner_image,showonhomepage,full_description,short_description,createddate,createdby,event_date) values($1,$2,$3,$4,$5,$6,$7,$8,now(),$9,$10) returning *',[spot_id,Event_name,true,iconImageResult.secure_url,bannerImageResult.secure_url,showonhomepage,full_description,short_description,sessionID,event_date])
     if(data.rowCount>0){
         res.status(200).json(data.rows);
     }
@@ -73,10 +95,11 @@ Router_Event.put('/DeleteEvent/:id',async(req,res)=>{
     
 })
 //to Update
-Router_Event.put('/UpdateEvent/:id',upload.fields([
-    {name:'iconImage',maxCount:1},
-    {name:'bannerImage',maxCount:1}
-]),async(req,res)=>{
+// ,upload.fields([
+//     {name:'iconImage',maxCount:1},
+//     {name:'bannerImage',maxCount:1}
+// ])
+Router_Event.put('/UpdateEvent/:id',async(req,res)=>{
     try {
         const {id}=req.params;
     console.log(id);
@@ -92,11 +115,22 @@ Router_Event.put('/UpdateEvent/:id',upload.fields([
         let queryParms;
         let iconImagePath = null;
         let bannerImagePath = null;
-        if (req.files.iconImage && req.files.iconImage.length > 0) {
-            iconImagePath = req.files.iconImage[0].path;
+        // Process file uploads to Cloudinary
+    const iconImage = req.files.iconImage;
+    const bannerImage = req.files.bannerImage;
+    // Upload iconImage and bannerImage to Cloudinary
+    const iconImageResult = await cloudinary.uploader.upload(iconImage.tempFilePath,(err,res)=>{
+        console.log(err);
+    });
+    
+    const bannerImageResult = await cloudinary.uploader.upload(bannerImage.tempFilePath,(err,res)=>{
+        console.log(err);
+    });
+        if (iconImageResult && bannerImageResult.secure_url.length > 0) {
+            iconImagePath = iconImageResult.secure_url;
         }
-        if (req.files.bannerImage && req.files.bannerImage.length > 0) {
-            bannerImagePath = req.files.bannerImage[0].path;
+        if (bannerImageResult && bannerImageResult.secure_url.length > 0) {
+            bannerImagePath = bannerImageResult.secure_url;
         }
         if(iconImagePath&&bannerImagePath){
            query='update tbl_events set spot_id=$1,event_name=$2,icon_image=$3,banner_image=$4,showonhomepage=$5,full_description=$6,short_description=$7,updateddate=now(),updatedby=$8,event_date=$10 where event_id=$9 returning *';

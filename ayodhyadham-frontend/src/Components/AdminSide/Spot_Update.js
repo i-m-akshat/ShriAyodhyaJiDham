@@ -21,7 +21,7 @@ function Spot_Update() {
   const id=location.state.id;
   const fetchList_Category = async () => {
     
-    fetch(process.env.REACT_APP_URL+'/manageCategory/', {
+    fetch(`${process.env.REACT_APP_URL}/manageCategory/`, {
       method: "GET",
       headers: {
         'Content-Type': 'application/json'
