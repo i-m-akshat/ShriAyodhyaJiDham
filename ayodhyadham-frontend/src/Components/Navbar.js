@@ -170,7 +170,7 @@ function Navbar() {
               </a>
               <ul className="dropdown-menu">
                 <li>
-                  <a className="dropdown-item" href="HotelBooking.html" onClick={closeNav}>
+                  <a className="dropdown-item" href="https://hotelbookingappdesign.vercel.app/" onClick={closeNav}>
                     Hotel Booking
                   </a>
                 </li>
